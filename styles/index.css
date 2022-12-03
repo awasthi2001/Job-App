@@ -53,4 +53,12 @@ form {
   padding: 3%;
   background: white;
 }
+#submit{
+  cursor: pointer;
+  background-color:rgb(111, 26, 26);
+  color: white;
+}
+#submit:hover{
+  background-color: rgb(134, 59, 59);
+}
 /* Form related css */

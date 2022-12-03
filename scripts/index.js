@@ -1,5 +1,3 @@
-
-
 import {Navbar} from '../Components/Navbar.js'
 let navbar = document.getElementById('links');
 
@@ -14,18 +12,23 @@ let name = document.getElementById('name').value;
 let email = document.getElementById('email').value;
 let JobType = document.getElementById('role').value;
 let expected = document.getElementById('salary').value;
-
-let user = {
-    name : name,
-    email : email,
-    JobType : JobType,
-    expected : expected
+if(name=='' || email=='' || JobType=='' || expected==''
+){
+    alert('please fill the required details')
+}else{
+    let user = {
+        name : name,
+        email : email,
+        JobType : JobType,
+        expected : expected
+    }
+    users.push(user);
+    localStorage.setItem('joblists',JSON.stringify(users));
+    document.getElementById('name').value='';
+    document.getElementById('email').value='';
+    //document.getElementById('role').value;
+     document.getElementById('salary').value='';
+     alert('successfully applied')
 }
-users.push(user);
-localStorage.setItem('joblists',JSON.stringify(users));
-document.getElementById('name').value='';
-document.getElementById('email').value='';
-//document.getElementById('role').value;
- document.getElementById('salary').value='';
- alert('successfully applied')
+
 }

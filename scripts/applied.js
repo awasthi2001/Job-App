@@ -10,7 +10,7 @@ DisplayItems()
 function DisplayItems(){
     let tbody = document.getElementById('body')
     tbody.innerHTML="";
-    AppliedJobs.map(({name,email,JobType,expected})=>{
+    AppliedJobs.map(({name,email,JobType,expected},index)=>{
        let row = document.createElement("tr");
        row.innerHTML = `
        <td>${name}</td>
@@ -28,9 +28,23 @@ function DisplayItems(){
        btn.style.cursor = 'pointer'
        btn.style.backgroundColor ='transparent';
        btn.style.border = 'none'
+       btn.addEventListener('click',function(){AddToBookmark(name,email,JobType,expected,index)})
        row.append(btn);
        tbody.append(row);
     })
 }
 
-console.log(AppliedJobs)
+let Bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+function AddToBookmark(name,email,JobType,expected,index){
+let jobobj = {
+    name : name,
+    email : email,
+    JobType : JobType,
+     expected : expected,
+}
+Bookmarks.push(jobobj);
+localStorage.setItem('bookmarks',JSON.stringify(Bookmarks));
+// AppliedJobs.splice(index,1);
+// localStorage.setItem('')
+// DisplayItems();
+}

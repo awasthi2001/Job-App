@@ -44,7 +44,5 @@ let jobobj = {
 }
 Bookmarks.push(jobobj);
 localStorage.setItem('bookmarks',JSON.stringify(Bookmarks));
-// AppliedJobs.splice(index,1);
-// localStorage.setItem('')
-// DisplayItems();
+alert('Added To Bookmarks')
 }
